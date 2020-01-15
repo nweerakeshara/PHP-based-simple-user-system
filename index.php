@@ -26,7 +26,7 @@
             <label>Password</label>
             <input class="inputvalues" type="password" placeholder="Input Password"><br>
             <input id="loginbtn" type="submit" value="Login"><br>
-            <input id="regbtn" type="button" value="Register"><br>
+            <a href="register.php"> <input id="regbtn" type="button" value="Register">  </a> <br>
 
         </form>
 
