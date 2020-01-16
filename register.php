@@ -7,19 +7,28 @@
     <title>Register Page</title>
     <link href="css/style.css" rel="stylesheet" type="text/css">
 
+
+    <script>
+        var loadFile = function(event) {
+                var output = document.getElementById('avatar');
+                output.src = URL.createObjectURL(event.target.files[0]);
+        };
+    </script>
+
 </head>
 <body style="background-color:grey">
     <div id="main-wrapper">
+        <form class="myform" action="register.php" method="post" enctype="multipart/form-data">
         <center>
             <h2>Register Form</h2>
 
-            <img class="avatar" src="images/icon%20for%20emp.png" >
-
+            <img id ="avatar" class="avatar" src="images/icon%20for%20emp.png" ><br>
+            <input name="imglink" type="file" accept="image/*" onchange="loadFile(event)">
 
 
         </center>
 
-        <form class="myform" action="register.php" method="post">
+
 
             <label>Username:</label><br>
             <input class="inputvalues" name="un" type="text" placeholder="Input Username" required><br>

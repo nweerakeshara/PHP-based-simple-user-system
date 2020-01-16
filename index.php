@@ -40,6 +40,9 @@
                 $query_run = mysqli_query($con, $query);
 
                 if(mysqli_num_rows($query_run)>0){
+
+                    $row = mysqli_fetch_assoc($query_run);
+
                     $_SESSION['un'] = $un;
                     header('location:home.php');
                 }
