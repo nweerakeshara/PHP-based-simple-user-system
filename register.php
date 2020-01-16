@@ -59,6 +59,12 @@
                     $cpw = $_POST['cpw'];
                     $gender = $_POST['gender'];
                     $qual = $_POST['qual'];
+                    $imgname = $_FILES['imglink']['name'];
+                    $imgnsize = $_FILES['imglink']['size'];
+                    $imgtmp = $_FILES['imglink']['tmp_name'];
+
+                    $dir ='uploads/';
+                    $target_file = $dir.$imgname;
 
                     if($pw == $cpw){
                         $query="select * from users where username ='$un'";
@@ -67,8 +73,16 @@
                         if(mysqli_num_rows ($query_run)> 0){
                          echo'<script type="text/javascript"> alert("User already exsist")</script>';
                         }
+                        else if(file_exists($target_file)){
+
+                         echo'<script type="text/javascript"> alert("Image already exsist")</script>';
+
+                        }
                         else{
-                             $query="insert into users values('$un','$pw', '$gender','$qual')";
+
+
+                             move_uploaded_file($imgtmp,$target_file);
+                             $query="insert into users values('$un','$pw', '$gender','$qual','$target_file')";
                              $query_run = mysqli_query($con,$query);
 
                             if($query_run){

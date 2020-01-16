@@ -12,8 +12,10 @@
     <div id="main-wrapper">
         <center>
             <h2>Home Page</h2>
-            <h3>Welcome <?php echo $_SESSION['un'] ?> </h3>
-            <img class="avatar" src="images/icon%20for%20emp.png" >
+            <h3>Welcome <?php echo $_SESSION['un']; ?> </h3> <br>
+            <h3><?php echo $_SESSION['imglink']; ?> </h3>
+
+            <img class="avatar" src=" <?php echo $_SESSION['imglink']; ?>">
 
 
 

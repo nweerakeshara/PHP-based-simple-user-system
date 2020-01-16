@@ -42,7 +42,7 @@
                 if(mysqli_num_rows($query_run)>0){
 
                     $row = mysqli_fetch_assoc($query_run);
-
+                    $_SESSION['imglink'] = $row['imglink'];
                     $_SESSION['un'] = $un;
                     header('location:home.php');
                 }
