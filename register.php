@@ -23,9 +23,19 @@
 
             <label>Username:</label><br>
             <input class="inputvalues" name="un" type="text" placeholder="Input Username" required><br>
-            <label>Password</label>
+            <label>Gender</label><br>
+            <input class="inputgender" name ="gender" type="radio" value="Male" placeholder="Male" checked required>
+            <input class="inputgender" name ="gender" type="radio" value="Female" placeholder="Female" required><br>
+
+            <label>Class</label><br>
+            <select class="qual" name="qual">
+                <option value="A">A</option>
+                <option value="B">B</option>
+            </select><br>
+
+            <label>Password</label><br>
             <input class="inputvalues" name ="pw" type="password" placeholder="Input Password" required><br>
-            <label>Confirm Password</label>
+            <label>Confirm Password</label><br>
             <input class="inputvalues" name="cpw" type="password" placeholder="Input Password" required><br>
             <input id="signupbtn" name="signupbtn" type="submit" value="sign Up"><br>
             <a href="index.php"> <input id="backbtn" type="button" value="Back"> </a><br>
@@ -38,6 +48,8 @@
                     $un = $_POST['un'];
                     $pw = $_POST['pw'];
                     $cpw = $_POST['cpw'];
+                    $gender = $_POST['gender'];
+                    $qual = $_POST['qual'];
 
                     if($pw == $cpw){
                         $query="select * from users where username ='$un'";
@@ -47,7 +59,7 @@
                          echo'<script type="text/javascript"> alert("User already exsist")</script>';
                         }
                         else{
-                             $query="insert into users values('$un','$pw')";
+                             $query="insert into users values('$un','$pw', '$gender','$qual')";
                              $query_run = mysqli_query($con,$query);
 
                             if($query_run){
